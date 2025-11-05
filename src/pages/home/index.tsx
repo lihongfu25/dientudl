@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Product } from 'src/components';
 import { IProduct } from 'src/constants';
 
@@ -26,6 +26,9 @@ const mockProducts: Array<IProduct> = [
 ];
 
 const Home = () => {
+	useEffect(() => {
+		document.title = 'Điện tử D&L';
+	}, []);
 	return (
 		<div className='my-10'>
 			{/* <div className='grid grid-cols-4 gap-4'>
