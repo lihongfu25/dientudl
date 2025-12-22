@@ -7,15 +7,19 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { ScrollToTop } from './components';
+import { ConfigProvider } from 'antd';
+import { theme } from 'src/config';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<BrowserRouter>
-				<ScrollToTop />
-				<App />
-			</BrowserRouter>
+			<ConfigProvider theme={theme}>
+				<BrowserRouter>
+					<ScrollToTop />
+					<App />
+				</BrowserRouter>
+			</ConfigProvider>
 		</Provider>
 	</React.StrictMode>,
 );

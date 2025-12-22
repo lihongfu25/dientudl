@@ -6,3 +6,11 @@ export const email = 'phamduc443143@gmail.com';
 export const workingTime = '9h00 - 17h00';
 export const companyName = 'CÔNG TY TNHH CÔNG NGHIỆP ĐIỆN TỬ D&L';
 export const domain = 'Dientudl.com';
+
+export const DEFAULT_PAGE_SIZE = 20;
+
+export interface SearchParams {
+	keyword?: string;
+	page?: number;
+	limit?: number;
+}

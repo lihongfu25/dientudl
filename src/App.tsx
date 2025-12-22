@@ -12,10 +12,15 @@ import {
 	HomePage,
 	HuongDanDatHangPage,
 	LienHePage,
+	LoginPage,
+	QuanLyDanhMucPage,
+	QuanLySanPhamPage,
 	TinTucPage,
 } from 'src/pages';
 import './App.css';
-import { MainLayout, PageLayout } from './layout';
+import { DashboardLayout, MainLayout, PageLayout } from './layout';
+import { ToastContainer } from 'react-toastify';
+import { AUTH_ROUTER, DASHBOARD_ROUTER, GENERAL_ROUTER } from './routers';
 
 function App() {
 	useEffect(() => {
@@ -23,26 +28,36 @@ function App() {
 	}, []);
 
 	return (
-		<div className='text-sm'>
-			<Routes>
-				<Route path='/*' element={<MainLayout />}>
-					<Route index element={<HomePage />} />
-					<Route path='*' element={<PageLayout />}>
-						<Route path='cam-ket-chat-luong' element={<CamKetChatLuongPage />} />
-						<Route path='lien-he' element={<LienHePage />} />
-						<Route path='huong-dan-dat-hang' element={<HuongDanDatHangPage />} />
-						<Route path='dieu-khoan-su-dung' element={<DieuKhoanSuDungPage />} />
-						<Route path='chinh-sach-doi-tra-hang' element={<ChinhSachDoiTraHangPage />} />
-						<Route path='chinh-sach-khieu-nai' element={<ChinhSachKhieuNaiPage />} />
-						<Route path='chinh-sach-bao-hanh' element={<ChinhSachBaoHanhPage />} />
-						<Route path='gioi-thieu' element={<GioiThieuPage />} />
-						<Route path='tin-tuc' element={<TinTucPage />} />
+		<>
+			<div className='text-sm'>
+				<Routes>
+					<Route path={AUTH_ROUTER.LOGIN} element={<LoginPage />} />
+					<Route path={DASHBOARD_ROUTER.HOME} element={<DashboardLayout />}>
+						<Route index element={<div></div>} />
+						<Route path={DASHBOARD_ROUTER.CATEGORY} element={<QuanLyDanhMucPage />} />
+						<Route path={DASHBOARD_ROUTER.PRODUCT} element={<QuanLySanPhamPage />} />
 					</Route>
-				</Route>
 
-				<Route path='*' element={<Navigate to='/' />} />
-			</Routes>
-		</div>
+					<Route path={GENERAL_ROUTER.HOME} element={<MainLayout />}>
+						<Route index element={<HomePage />} />
+						<Route path='*' element={<PageLayout />}>
+							<Route path={GENERAL_ROUTER.CAM_KET_CHAT_LUONG} element={<CamKetChatLuongPage />} />
+							<Route path={GENERAL_ROUTER.LIEN_HE} element={<LienHePage />} />
+							<Route path={GENERAL_ROUTER.HUONG_DAN_DAT_HANG} element={<HuongDanDatHangPage />} />
+							<Route path={GENERAL_ROUTER.DIEU_KHOAN_SU_DUNG} element={<DieuKhoanSuDungPage />} />
+							<Route path={GENERAL_ROUTER.CHINH_SACH_DOI_TRA_HANG} element={<ChinhSachDoiTraHangPage />} />
+							<Route path={GENERAL_ROUTER.CHINH_SACH_KHIEU_NAI} element={<ChinhSachKhieuNaiPage />} />
+							<Route path={GENERAL_ROUTER.CHINH_SACH_BAO_HANH} element={<ChinhSachBaoHanhPage />} />
+							<Route path={GENERAL_ROUTER.GIOI_THIEU} element={<GioiThieuPage />} />
+							<Route path={GENERAL_ROUTER.TIN_TUC} element={<TinTucPage />} />
+						</Route>
+					</Route>
+
+					<Route path='*' element={<Navigate to='/' />} />
+				</Routes>
+			</div>
+			<ToastContainer />
+		</>
 	);
 }
 
