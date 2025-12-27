@@ -14,7 +14,7 @@ const Header = () => {
 		}
 	};
 	const onSearch = () => {
-		console.log(search);
+		// console.log(search);
 	};
 	return (
 		<>

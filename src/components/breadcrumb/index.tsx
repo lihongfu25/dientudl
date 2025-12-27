@@ -13,14 +13,14 @@ const Breadcrumb = ({ breadcrumbs }: IBreadcrumbProps) => {
 			{breadcrumbs.map((breadcrumb) =>
 				!breadcrumb.active ? (
 					<>
-						<Link to={breadcrumb.path} key={breadcrumb.path} className='hover:text-[#2074be]'>
+						<Link to={breadcrumb.path} key={Math.random()} className='hover:text-[#2074be]'>
 							{breadcrumb.name}
 						</Link>
-						<HugeiconsIcon icon={ArrowRight01Icon} size={14} />
+						<HugeiconsIcon key={Math.random()} icon={ArrowRight01Icon} size={14} />
 					</>
 				) : (
 					<>
-						<span key={breadcrumb.path} className='text-[#2074be]'>
+						<span key={Math.random()} className='text-[#2074be]'>
 							{breadcrumb.name}
 						</span>
 					</>

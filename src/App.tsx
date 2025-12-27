@@ -7,6 +7,7 @@ import {
 	ChinhSachBaoHanhPage,
 	ChinhSachDoiTraHangPage,
 	ChinhSachKhieuNaiPage,
+	ChiTietSanPhamPage,
 	DieuKhoanSuDungPage,
 	GioiThieuPage,
 	HomePage,
@@ -15,12 +16,14 @@ import {
 	LoginPage,
 	QuanLyDanhMucPage,
 	QuanLySanPhamPage,
+	ThemMoiSanPhamPage,
 	TinTucPage,
 } from 'src/pages';
 import './App.css';
 import { DashboardLayout, MainLayout, PageLayout } from './layout';
 import { ToastContainer } from 'react-toastify';
 import { AUTH_ROUTER, DASHBOARD_ROUTER, GENERAL_ROUTER } from './routers';
+import 'src/styles/app.scss';
 
 function App() {
 	useEffect(() => {
@@ -36,6 +39,8 @@ function App() {
 						<Route index element={<div></div>} />
 						<Route path={DASHBOARD_ROUTER.CATEGORY} element={<QuanLyDanhMucPage />} />
 						<Route path={DASHBOARD_ROUTER.PRODUCT} element={<QuanLySanPhamPage />} />
+						<Route path={DASHBOARD_ROUTER.PRODUCT_CREATE} element={<ThemMoiSanPhamPage />} />
+						<Route path={DASHBOARD_ROUTER.PRODUCT_DETAIL} element={<ChiTietSanPhamPage />} />
 					</Route>
 
 					<Route path={GENERAL_ROUTER.HOME} element={<MainLayout />}>

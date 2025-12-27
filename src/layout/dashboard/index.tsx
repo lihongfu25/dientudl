@@ -148,7 +148,9 @@ const DashboardLayout = () => {
 						</Dropdown>
 					</div>
 					<div className='flex-1 p-4'>
-						<Outlet />
+						<div className='max-h-[calc(100vh-98px)] overflow-y-auto'>
+							<Outlet />
+						</div>
 					</div>
 				</div>
 			</div>

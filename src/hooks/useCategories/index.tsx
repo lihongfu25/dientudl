@@ -8,13 +8,10 @@ export const useCategories = () => {
 	const [loading, setLoading] = useState(true);
 	const { db } = useFirebase();
 
-	// const debouncedKeyword = useDebounce(keyword, 500);
-
 	useEffect(() => {
 		if (!db) return;
 		setLoading(true);
 		const q = query(collection(db, 'category'), where('isDeleted', '==', false), orderBy('sortOrder', 'asc'));
-		console.log(q);
 		const unsub = onSnapshot(q, (snapshot) => {
 			let data: Array<any> = snapshot.docs.map((doc) => ({
 				id: doc.id,

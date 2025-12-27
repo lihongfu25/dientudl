@@ -2,6 +2,9 @@ export const DASHBOARD_ROUTER = {
 	HOME: '/quan-ly',
 	CATEGORY: '/quan-ly/danh-muc',
 	PRODUCT: '/quan-ly/san-pham',
+	PRODUCT_CREATE: '/quan-ly/san-pham/them-moi',
+	PRODUCT_DETAIL: '/quan-ly/san-pham/detail/:id',
+	PRODUCT_DETAILS: (id: string) => '/quan-ly/san-pham/detail/' + id,
 };
 
 export const AUTH_ROUTER = {

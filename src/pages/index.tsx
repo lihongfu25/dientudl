@@ -13,6 +13,8 @@ const GioiThieuPage = React.lazy(() => import('src/pages/gioi-thieu'));
 const TinTucPage = React.lazy(() => import('src/pages/tin-tuc'));
 const QuanLyDanhMucPage = React.lazy(() => import('src/pages/quan-ly/danh-muc'));
 const QuanLySanPhamPage = React.lazy(() => import('src/pages/quan-ly/san-pham'));
+const ThemMoiSanPhamPage = React.lazy(() => import('src/pages/quan-ly/san-pham/components/tao-moi'));
+const ChiTietSanPhamPage = React.lazy(() => import('src/pages/quan-ly/san-pham/components/chi-tiet'));
 
 export {
 	LoginPage,
@@ -28,4 +30,6 @@ export {
 	TinTucPage,
 	QuanLyDanhMucPage,
 	QuanLySanPhamPage,
+	ThemMoiSanPhamPage,
+	ChiTietSanPhamPage,
 };

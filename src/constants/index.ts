@@ -14,3 +14,9 @@ export interface SearchParams {
 	page?: number;
 	limit?: number;
 }
+
+export interface ISpecification {
+	key: string;
+	value: any;
+	showInCard: boolean;
+}

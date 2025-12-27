@@ -4,7 +4,7 @@ import { Form, Input, Modal, Select, Table } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Breadcrumb } from 'src/components';
+import { Breadcrumb, Loading } from 'src/components';
 import { showToast } from 'src/config';
 import { DEFAULT_PAGE_SIZE, SearchParams } from 'src/constants';
 import { generateSlug, paginate } from 'src/helpers';
@@ -20,7 +20,7 @@ interface CategoryForm {
 const QuanLyDanhMuc = () => {
 	const [breadcrumbs] = useState([
 		{ name: 'Quản lý', path: '/quan-ly', active: false },
-		{ name: 'Danh mục', path: '/quan-ly/danh-muc', active: true },
+		{ name: 'Quản lý Danh mục', path: '/quan-ly/danh-muc', active: true },
 	]);
 	const [searchForm] = useForm<SearchParams>();
 	const [keyword, setKeyword] = useState('');
@@ -159,7 +159,7 @@ const QuanLyDanhMuc = () => {
 			setIsModalOpen(false);
 			form.resetFields();
 		} catch (error: any) {
-			console.log(error);
+			console.error(error);
 			switch (error.code) {
 				default:
 					showToast('Có lỗi xảy ra trong quá trình tạo mới danh mục', 'error');
@@ -315,7 +315,7 @@ const QuanLyDanhMuc = () => {
 							Hủy
 						</button>
 						<button type='submit' className='min-w-[100px] px-4 py-[6px] bg-[#2074be] hover:bg-sky-600 text-white rounded-md flex justify-center items-center' disabled={loadingAction}>
-							{loadingAction ? <div className='h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin' /> : 'Lưu'}
+							{loadingAction ? <Loading /> : 'Lưu'}
 						</button>
 					</div>
 				</Form>
